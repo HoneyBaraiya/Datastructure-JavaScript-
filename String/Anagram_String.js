@@ -20,19 +20,21 @@ isAmargam(str1,str2);
 // solution 2
 
 function isAmargam2(s1,s2){
-    let obj1={}
-    let obj2={}
-
-    for(let i=0;i<s1.length;i++)
-    {
-        obj1[s1[i]]=(obj1[s1[i]]||0) +1;
-        obj2[s2[i]]=(obj2[s2[i]]||0) +1;
+        let obj1={}
+        let obj2={}
+        if(s1.length!==s2.length)
+            return false;
+        for(let i=0;i<s1.length;i++)
+        {
+            obj1[s1[i]]=(obj1[s1[i]]||0) +1;
+            obj2[s2[i]]=(obj2[s2[i]]||0) +1;
+        }
+        
+        for(let key in obj1)
+        {
+            if(obj1[key]!==obj2[key])
+                return false
+        }
+        return true;
     }
-    for(let i=0;i<obj1.length;i++)
-    {
-        if(obj1[i]!==obj2[i])
-            return false
-    }
-    return true;
-}
-console.log(isAmargam2(str1,str2));
+    console.log(isAmargam2("honey","yehkk"));
